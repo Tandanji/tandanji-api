@@ -1,12 +1,24 @@
-from firebase_admin import firestore
+import pyrebase
+import json
 
-class Repository():
-  def __init__(self) -> None:
-    self.db=firestore.client()
+class Repository:
+  def __init__(self):
+    with open('./firebase-info.json') as f:
+      self.config = json.load(f)
+      self.firebase = pyrebase.initialize_app(self.config)
+
+  def getData(self):
+    db=self.firebase.database()
+    return db.child("users").get()
+
   def setData(self):
-    doc_ref = self.db.collection(u'users').document(u'alovelace')
-    doc_ref.set({
-        u'first': u'Ada',
-        u'last': u'Lovelace',
-        u'born': 1815
-    })
+    db=self.firebase.database()
+    data={
+      "name":"jaejun",
+      "desc":"helloworld",
+      "age":123
+    }
+    return db.child("users").push(data)
+
+
+#from firebase.repository import Repository
