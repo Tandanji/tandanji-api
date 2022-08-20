@@ -1,13 +1,19 @@
-from firebase_admin import auth
+import pyrebase
+import json
 
 class Authentication:
-  def signIn(self,email,password):
-    return auth.sign_in_with_email_and_password(email,password)
+  def __init__(self):
+    with open('./firebase-info.json') as f:
+      self.config = json.load(f)
+      self.firebase = pyrebase.initialize_app(self.config)
 
-  def signUp(self):
-    user = auth.create_user(
-    email='user123@example.com',
-    password='secretPassword',
-    display_name='John Doe',
-    disabled=False)
-    print('Sucessfully created new user: {0}'.format(user.uid))
+  def signIn(self,email,password):
+    signData=self.firebase.auth().sign_in_with_email_and_password(email,password)
+    return self.firebase.auth().get_account_info(signData["idToken"])
+
+  def signUp(self,email,password):
+    signData=self.firebase.auth().create_user_with_email_and_password(email, password)
+    return self.firebase.auth().get_account_info(signData["idToken"])
+
+
+
