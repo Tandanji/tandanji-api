@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="icon" href="./src/app_logo.png" />
+
+    <link rel="shortcut icon" sizes="192x192" href="./src/app_logo.png" />
+
+    <meta name="apple-mobile-web-app-title" content="Tandanji" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="apple-touch-icon" sizes="128x128" href="./src/app_logo.png" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="128x128"
+      href="./src/app_logo.png"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/font.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/basic.css" />
+
+    <title>Tandanji</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="flexbox">
+        <div class="textBox">
+          <div class="text">
+            <h1 style="color: #212121">탄단지</h1>
+            <h1 style="color: #999cf0">로그인</h1>
+          </div>
+        </div>
+        <div class="bottom">
+          <input id="email" type="email" placeholder="Email" />
+          <input id="password" type="password" placeholder="Password" />
+          <button type="button" class="btn">로그인</button>
+          <p style="text-align: center">
+            계정이 없으신가요? <a href="#">회원가입</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <style>
+    h1 {
+      font-weight: bold;
+      font-size: 40px;
+    }
+    .text {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .container {
+      height: 100%;
+    }
+    .flexbox {
+      justify-content: center;
+      height: 100%;
+      flex-direction: column;
+    }
+    .textBox {
+      height: 70%;
+    }
+
+    .bottom {
+      height: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    input {
+      background: #f8f7fd;
+      border-radius: 5px;
+      border-color: none;
+      border-style: none !important;
+      height: 20%;
+      padding-left: 5%;
+    }
+    .btn {
+      height: 20%;
+      color: white;
+      background: linear-gradient(180deg, #cec9f2 0%, #9c9ff0 100%);
+      border-style: none !important;
+      border-radius: 5px;
+    }
+  </style>
+</html>

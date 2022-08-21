@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="icon" href="./src/app_logo.png" />
+
+    <link rel="shortcut icon" sizes="192x192" href="./src/app_logo.png" />
+
+    <meta name="apple-mobile-web-app-title" content="Tandanji" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="apple-touch-icon" sizes="128x128" href="./src/app_logo.png" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="128x128"
+      href="./src/app_logo.png"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/font.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/basic.css" />
+
+    <title>Tandanji</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="flexbox">
+        <h4>식단 등록</h4>
+        <div class="container-head">
+          <img style="width: 80%; margin: 4%" src="../static/img/guide.png" />
+          <h3>
+            한끼 식사가 모두 담길 수 있도록<br />사진을 촬영 및 업로드 해주세요
+          </h3>
+        </div>
+        <div class="bottom">
+          <button type="button" class="btn">사진 업로드</button>
+          <button type="button" class="btn">촬영</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <div class="bottomNav">
+      <div class="items" onclick="goHome()">
+        <p style="margin: 0"><img src="../static/svg/home.svg" /><br />Home</p>
+      </div>
+      <div class="items" onclick="goBookMark()">
+        <p style="margin: 0">
+          <img src="../static/svg/bookmark.svg" /><br />Diet
+        </p>
+      </div>
+      <div class="items" onclick="goCamera()">
+        <p style="margin: 0">
+          <img src="../static/svg/camera-fill.svg" /><br />Upload
+        </p>
+      </div>
+      <div class="items" onclick="goPerson()">
+        <p style="margin: 0">
+          <img src="../static/svg/person.svg" /><br />Profile
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function goHome() {
+      location.href = "/foodlist.html";
+    }
+    function goBookMark() {
+      location.href = "/day-chart.html";
+    }
+    function goCamera() {
+      location.href = "/foodguide.html";
+    }
+    function goPerson() {}
+  </script>
+  <style>
+    p {
+      text-align: center;
+      font-size: 12px;
+    }
+    .items img {
+      width: 30%;
+      text-align: center;
+    }
+    .items {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .bottomNav {
+      border-radius: 10px;
+      height: 9%;
+      background-color: white;
+      overflow: hidden;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    h4 {
+      font-weight: bold;
+    }
+    body {
+      padding-top: 5%;
+      padding-bottom: 5%;
+    }
+    .container-head {
+      height: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .container {
+      height: 100%;
+    }
+    .flexbox {
+      justify-content: center;
+      height: 100%;
+      flex-direction: column;
+    }
+    .btn {
+      height: 35%;
+      color: white;
+      background: linear-gradient(180deg, #cec9f2 0%, #9c9ff0 100%);
+      border-style: none !important;
+      border-radius: 5px;
+    }
+    .bottom {
+      height: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  </style>
+</html>
