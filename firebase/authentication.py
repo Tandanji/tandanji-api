@@ -1,5 +1,7 @@
-import pyrebase
 import json
+
+import pyrebase
+
 
 class Authentication:
   def __init__(self):
