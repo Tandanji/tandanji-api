@@ -49,26 +49,6 @@
       </div>
     </div>
   </body>
-  <footer>
-    <div class="bottomNav">
-      <div class="items" onclick="goHome()">
-        <p style="margin: 0"><img src="../static/svg/home.svg" /><br />Home</p>
-      </div>
-      <div class="items" onclick="goBookMark()">
-        <p style="margin: 0"><img src="../static/svg/bookmark-fill.svg" /><br />Diet</p>
-      </div>
-      <div class="items" onclick="goCamera()">
-        <p style="margin: 0">
-          <img src="../static/svg/camera.svg" /><br />Upload
-        </p>
-      </div>
-      <div class="items" onclick="goPerson()">
-        <p style="margin: 0">
-          <img src="../static/svg/person.svg" /><br />Profile
-        </p>
-      </div>
-    </div>
-  </footer>
   <script>
     function goHome() {
       location.href = "/foodlist.html";
@@ -120,17 +100,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
-    .bottomNav {
-      border-radius: 10px;
-      height: 9%;
-      background-color: white;
-      overflow: hidden;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
     }
     #legend {
       position: absolute;

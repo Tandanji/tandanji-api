@@ -47,45 +47,38 @@
           </h3>
         </div>
         <div class="bottom">
-          <button type="button" class="btn">사진 업로드</button>
-          <button type="button" class="btn">촬영</button>
+          <button
+            type="button"
+            class="btn"
+            onclick="document.getElementById('getCamera').click();"
+          >
+            촬영
+          </button>
+          <form
+            id="form"
+            method="post"
+            accept="application/json"
+            enctype="multipart/form-data"
+            action="/taking-pictures/uploadfile/"
+          >
+            <input
+              id="getCamera"
+              type="file"
+              name="file"
+              style="display: none"
+              accept="image/*"
+              value="촬영"
+              capture="camera"
+            />
+          </form>
         </div>
       </div>
     </div>
   </body>
-  <footer>
-    <div class="bottomNav">
-      <div class="items" onclick="goHome()">
-        <p style="margin: 0"><img src="../static/svg/home.svg" /><br />Home</p>
-      </div>
-      <div class="items" onclick="goBookMark()">
-        <p style="margin: 0">
-          <img src="../static/svg/bookmark.svg" /><br />Diet
-        </p>
-      </div>
-      <div class="items" onclick="goCamera()">
-        <p style="margin: 0">
-          <img src="../static/svg/camera-fill.svg" /><br />Upload
-        </p>
-      </div>
-      <div class="items" onclick="goPerson()">
-        <p style="margin: 0">
-          <img src="../static/svg/person.svg" /><br />Profile
-        </p>
-      </div>
-    </div>
-  </footer>
   <script>
-    function goHome() {
-      location.href = "/foodlist.html";
-    }
-    function goBookMark() {
-      location.href = "/day-chart.html";
-    }
-    function goCamera() {
-      location.href = "/foodguide.html";
-    }
-    function goPerson() {}
+    document.getElementById("getCamera").onchange = function () {
+      document.getElementById("form").submit();
+    };
   </script>
   <style>
     p {
@@ -102,23 +95,12 @@
       flex-direction: column;
       justify-content: center;
     }
-    .bottomNav {
-      border-radius: 10px;
-      height: 9%;
-      background-color: white;
-      overflow: hidden;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
     h4 {
       font-weight: bold;
     }
     body {
-      padding-top: 5%;
-      padding-bottom: 5%;
+      padding-top: 10%;
+      padding-bottom: 10%;
     }
     .container-head {
       height: 60%;
