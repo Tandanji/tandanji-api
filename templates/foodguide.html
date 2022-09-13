@@ -47,13 +47,7 @@
           </h3>
         </div>
         <div class="bottom">
-          <button
-            type="button"
-            class="btn"
-            onclick="document.getElementById('getCamera').click();"
-          >
-            촬영
-          </button>
+          
           <form
             id="form"
             method="post"
@@ -61,6 +55,18 @@
             enctype="multipart/form-data"
             action="/taking-pictures/uploadfile/"
           >
+          <div style="text-align: center; margin: 5%; font-size: large;">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">남</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">여</label>
+            </div>
+          </div>
+          <input class="form-control textInput" min="1" max="100" type="number" placeholder="나이를 입력하세요" />
+
             <input
               id="getCamera"
               type="file"
@@ -71,6 +77,13 @@
               capture="camera"
             />
           </form>
+          <button
+            type="button"
+            class="btn"
+            onclick="document.getElementById('getCamera').click();"
+          >
+            촬영
+          </button>
         </div>
       </div>
     </div>
@@ -81,6 +94,13 @@
     };
   </script>
   <style>
+    .textInput {
+      background: #f8f7fd;
+      border-radius: 5px;
+      border-color: none;
+      border-style: none !important;
+      margin-bottom: 5%;
+    }
     p {
       text-align: center;
       font-size: 12px;
@@ -108,6 +128,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      margin-bottom: 10%;
     }
     .container {
       height: 100%;
