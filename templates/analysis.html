@@ -39,7 +39,7 @@
   </head>
   <body>
     <div class="container">
-      <h2 id="title">2022년 7월 31일 섭취량</h2>
+      <h2 id="title">식단의 영양소 정보</h2>
       <div class="flexBox"></div>
 
     </div>
@@ -171,17 +171,17 @@
   </style>
   <script type="text/javascript">
     const textArray = [
-      "열량",
-      "나트륨",
-      "지방",
-      "칼슘",
+      "에너지",
       "탄수화물",
       "당류",
+      "지방",
       "단백질",
+      "칼슘",
       "인",
+      "나트륨",
       "칼륨",
-      "철",
       "마그네슘",
+      "철",
       "아연",
       "콜레스트롤",
       "트랜스지방",
@@ -202,18 +202,18 @@
       "#16A085",
       "#16A085",
     ];
-    const valueArray = [42, 93, 55, 15, 54, 0, 45, 75, 25, 48, 4, 43, 103, 0];
-    const detailArray = [1056, 1869, 22, 104, 176, 0, 31, 523, 878, 5, 15, 5, 309, 0];
+    const valueArray = "{{ percent }}".split("/");
+    const detailArray = "{{ value }}".split("/");
     const unitArray = [
       "kcal",
-      "mg",
       "g",
-      "mg",
-      "kcal",
+      "g",
       "g",
       "g",
       "mg",
-      "g",
+      "mg",
+      "mg",
+      "mg",
       "mg",
       "mg",
       "mg",
