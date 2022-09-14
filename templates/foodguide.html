@@ -47,7 +47,6 @@
           </h3>
         </div>
         <div class="bottom">
-          
           <form
             id="form"
             method="post"
@@ -55,17 +54,38 @@
             enctype="multipart/form-data"
             action="/taking-pictures/uploadfile/"
           >
-          <div style="text-align: center; margin: 5%; font-size: large;">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-              <label class="form-check-label" for="inlineRadio1">남</label>
+            <div style="text-align: center; margin: 5%; font-size: large">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="inlineRadio1"
+                  value="male"
+                  checked
+                />
+                <label class="form-check-label" for="inlineRadio1">남</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="inlineRadio2"
+                  value="female"
+                />
+                <label class="form-check-label" for="inlineRadio2">여</label>
+              </div>
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">여</label>
-            </div>
-          </div>
-          <input class="form-control textInput" min="1" max="100" type="number" placeholder="나이를 입력하세요" />
+            <input
+              class="form-control textInput"
+              min="1"
+              max="100"
+              type="number"
+              name="age"
+              placeholder="나이를 입력하세요"
+              required
+            />
 
             <input
               id="getCamera"
