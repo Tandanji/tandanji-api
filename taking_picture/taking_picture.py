@@ -1,5 +1,7 @@
-from fastapi import APIRouter, Request, Form, File
-from fastapi.responses import HTMLResponse
+from calendar import c
+from urllib import response
+from fastapi import APIRouter, Request, Response ,Form, File
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi import UploadFile
 from pydantic import BaseModel
@@ -30,14 +32,11 @@ async def create_upload_file(file: UploadFile=File(...), gender:str=Form(...),ag
   food,cal=getFoodsByCSV(strFoods)
   recommendNutrient=getNutrientByCSV(gender,age)
   currentPercent=calcPercent(recommendNutrient,cal)
-  #str(food)
-  print(cal)
-  print(currentPercent[-1])
 
-  '''url = f'{request.client.host}/?{params}'
-  response = RedirectResponse(url=url)'''
-
-  return {"predict": str(currentPercent)}
+  headers = {"percent": "/".join(map(str,currentPercent)),"value":"/".join(map(str,cal)) }
+  response = RedirectResponse('/analysis', status_code=303)
+  response.set_cookie(key="nutrient", value=headers)
+  return response
 
 def id_generator(size=20, chars=string.ascii_uppercase + string.digits):
    return ''.join(random.choice(chars) for _ in range(size))
@@ -54,14 +53,14 @@ def getFoodsByCSV(strFoods):
   for index in foodlist:
     data=list(dataFrame[dataFrame["food"]==index].iloc[0])
     foodData.append(data[0])
-    calData=[x+y for x,y in zip(calData, data[2:])]
+    calData=[round(x+y,0) for x,y in zip(calData, data[2:])]
   return [foodData,calData]
 
 def getNutrientForGender(gender):
   filePath="model/nutrient-data/man_nutrient.csv"
   if(gender=="male"):
     filePath="model/nutrient-data/woman_nutrient.csv"
-    return filePath
+  return filePath
 
 def getNutrientByCSV(gender,age):
   filePath=getNutrientForGender(gender)
@@ -70,7 +69,7 @@ def getNutrientByCSV(gender,age):
   return nutrientList[2:]
 
 def calcPercent(recommendNutrientList, currentNutrientList):
-  data=[round((recommend/current)*100,2) for recommend,current in zip(recommendNutrientList, currentNutrientList)]
+  data=[round((current/recommend)*100,0) for recommend,current in zip(recommendNutrientList, currentNutrientList)]
   return np.nan_to_num(data,copy=True,posinf=0)
 
   
